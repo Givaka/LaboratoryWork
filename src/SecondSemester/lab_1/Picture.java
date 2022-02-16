@@ -1,4 +1,4 @@
-package SecondSemester.lab_1_2;
+package SecondSemester.lab_1;
 
 import java.awt.*;
 import javax.swing.*;
@@ -22,8 +22,8 @@ public class Picture extends JFrame {
         Graphics2D g2 = (Graphics2D) g;
 
 //        Палитра
-        Color bg        = Color.yellow;
-        Color square    = Color.blue;
+        Color bg        = Color.yellow; //  Цвет задника
+        Color square    = Color.blue;   //  Цвет квадратиков
 
 //        Очищаем фон
         Rectangle r = getBounds();
@@ -32,16 +32,17 @@ public class Picture extends JFrame {
         g2.setBackground(bg);
         g2.clearRect(0, 0, r.width, r.height);
 
-        g.setColor(square);
-        int i = 0;
-        do{
-            g.fillRect(50*i,50*i,50,50);
+//        Вывод квадратиков по диагонали
+        g.setColor(square); //  Установка цвета кисти
+        int i = 0;          //  Инициализация с присвоением итератора
+        do{                 //  Цикл который выводит квадраты пока не достигнит либог левой, либо нижней стороны окна
+            g.fillRect(50*i,50*i,50,50);    //  Вывод квадратика со смещением
             i++;
         } while (!((getWidth()/50 == i) || (getHeight()/50 == i)));
     }
 
     public static void main (String[]args){
-        new Picture("Диагональ");
+        new Picture("Квадратики");
     }
 
 }
